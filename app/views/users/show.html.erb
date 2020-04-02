@@ -10,7 +10,8 @@
 
   <% @user.counters.each do |counter| %>
   <tr>
-    <th colspan="2"><%= counter.title %></th>
+    <th><%= counter.title %></th>
+    <th>Qty</th>
   </tr>
 
   <% counter.entries.each do |entry|  %>

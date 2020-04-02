@@ -7,8 +7,8 @@ class EntriesController < ApplicationController
   def create
     binding.pry
     @entry = Entry.new(entry_params)
-    if params[:counter_id]
-      @entry.counter = Counter.find params[:counter_id]
+    if params[:entry][:counter_id]
+      @entry.counter = Counter.find params[:entry][:counter_id]
     end
     #@entry.counter = Counter.create(params[:counter]) if params[:counter]
     if @entry.save

@@ -1,6 +1,6 @@
 <h1><%= @user.name %></h1>
 
-<table>
+<table class="w3-table w3-bordered">
   <tr>
     <th colspan="2">Counters</th>
   </tr>
@@ -16,7 +16,7 @@
 
   <% counter.entries.each do |entry|  %>
   <tr>
-    <td><%= entry.created_at.strftime('%D %R') %></td>
+    <td><%= entry.created_at.localtime.strftime('%D %R') %></td>
     <td><%= entry.quantity %></td>
   </tr>
   <% end %>

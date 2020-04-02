@@ -4,7 +4,7 @@
 <%= f.text_field :quantity %>
 <br>
 <%= f.label :counter_id, 'Select Counter' %>
-<%= f.collection_select :counter_id, current_user.counters, :id, :title %>
+<%= f.collection_select :counter_id, current_user.counters, :id, :title, include_blank: true %>
 <br>
 <%= f.fields_for :counter, Counter.new do |ff| %>
   <%= ff.label :title, 'New Counter' %>

@@ -5,7 +5,11 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.create(entry_params)
+    binding.pry
+    @entry = Entry.new(entry_params)
+    if params[:counter_id]
+      @entry.counter = Counter.find params[:counter_id]
+    end
     #@entry.counter = Counter.create(params[:counter]) if params[:counter]
     if @entry.save
       redirect_to user_path(current_user)

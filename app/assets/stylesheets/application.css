@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.w3-mobile {
+  max-width: 600px;
+}

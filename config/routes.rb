@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :counters
   end
-  
+
   resources :counters
   resources :entries
 
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   get 'register' => 'users#new', as: 'register'
+
+  get 'leaderboard' => 'static#leaderboard'
 
   root 'static#welcome'
 

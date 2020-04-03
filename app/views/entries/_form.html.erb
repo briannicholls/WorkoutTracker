@@ -5,11 +5,12 @@
 <br>
 <%= f.label :counter_id, 'Select Counter' %>
 <%= f.collection_select :counter_id, Counter.all, :id, :title, include_blank: true %>
+<%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
 <br>
 <%#= f.fields_for :counter, Counter.new do |ff| %>
   <%#= ff.label :title, 'New Counter' %>
   <%#= ff.text_field :title %>
-  <%#= ff.hidden_field :user_id, :value => "#{current_user.id}" %>
+
 <%# end %>
 <br>
 <%= f.submit %>

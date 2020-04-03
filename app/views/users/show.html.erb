@@ -1,9 +1,11 @@
-<h1><%= @user.name %></h1>
 
 <table class="w3-table w3-bordered">
   <tr>
-    <th><%= link_to 'Add Entry', new_entry_path, class: 'w3-btn w3-green' %></th>
-    <th><%= link_to 'Add New Counter', new_counter_path, class: 'w3-btn w3-blue' %></th>
+    <th colspan="2"><h1><%= @user.name %></h1></th>
+  </tr>
+  <tr>
+    <th><%= link_to 'Add Entry', new_entry_path, class: 'w3-btn w3-green w3-bar' %></th>
+    <th><%= link_to 'Add New Counter', new_counter_path, class: 'w3-btn w3-blue w3-bar' %></th>
   </tr>
 
   <% @counters.each do |counter| %>

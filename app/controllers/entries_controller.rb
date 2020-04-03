@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_action :redirect_if_not_logged_in
-  
+
   def new
     @entry = Entry.new
     @counter = Counter.new
@@ -30,9 +30,11 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(
+      :user_id,
       :quantity,
       :counter_id,
       :counter_attributes => [:id, :title, :user_id]
+
     )
   end
 end

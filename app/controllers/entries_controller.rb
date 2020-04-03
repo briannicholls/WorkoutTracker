@@ -7,8 +7,10 @@ class EntriesController < ApplicationController
   def create
     binding.pry
     @entry = Entry.new(entry_params)
-    if params[:entry][:counter_id]
+    if !params[:entry][:counter_id].empty?
       @entry.counter = Counter.find params[:entry][:counter_id]
+    else
+      @entry.counter = Counter.new(entry_params[:counter_attributes])
     end
     #@entry.counter = Counter.create(params[:counter]) if params[:counter]
     if @entry.save

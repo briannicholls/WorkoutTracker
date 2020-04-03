@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @counters = Counter.all
     set_user
   end
 

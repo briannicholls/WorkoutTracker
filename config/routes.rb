@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :counters
   end
-
+  
+  resources :counters
   resources :entries
 
   get 'login' => 'sessions#new', as: 'login'

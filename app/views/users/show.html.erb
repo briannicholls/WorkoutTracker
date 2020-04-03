@@ -8,7 +8,7 @@
     <th><%= link_to 'Add Entry', new_entry_path %></th>
   </tr>
 
-  <% @user.counters.each do |counter| %>
+  <% @counters.each do |counter| %>
   <tr>
     <th><%= counter.title %></th>
     <th>Qty</th>

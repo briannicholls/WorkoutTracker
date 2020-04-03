@@ -2,9 +2,17 @@
 <table class="w3-table">
   <% Counter.all.each do |counter| %>
   <tr>
-    <th colspan="2"><h1><%= counter.title %></h1></th>
+    <th colspan="2"><h2><%= counter.title %></h2></th>
   </tr>
 
-  
+    <% User.all.each do |user| %>
+
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.grand_total(counter) %></td>
+    </tr>
+
+    <% end %>
+
   <% end %>
 </table>

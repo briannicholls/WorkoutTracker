@@ -15,7 +15,7 @@
     <th>Qty</th>
   </tr>
 
-  <% counter.entries.select{ |e| e.user_id == current_user.id }.each do |entry|  %>
+  <% counter.entries.select{ |e| e.user_id == @user.id }.each do |entry|  %>
   <tr>
     <td><%= entry.created_at.localtime.strftime('%D %R') %></td>
     <td><%= entry.quantity %></td>

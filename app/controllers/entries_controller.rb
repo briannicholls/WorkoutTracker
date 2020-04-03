@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    binding.pry
+    #binding.pry
     @entry = Entry.new(entry_params)
     if !params[:entry][:counter_id].empty?
       @entry.counter = Counter.find params[:entry][:counter_id]

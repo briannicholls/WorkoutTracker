@@ -2,19 +2,20 @@
 
 <table class="w3-table w3-bordered">
   <tr>
-    <th colspan="2">Counters</th>
-  </tr>
-  <tr>
-    <th><%= link_to 'Add Entry', new_entry_path %></th>
+    <th><%= link_to 'Add Entry', new_entry_path, class: 'w3-btn w3-green' %></th>
+    <th><%= link_to 'Add New Counter', new_counter_path, class: 'w3-btn w3-blue' %></th>
   </tr>
 
   <% @counters.each do |counter| %>
   <tr>
-    <th><%= counter.title %></th>
+    <th colspan="2"><h2><%= counter.title %></h2></th>
+  </tr>
+  <tr>
+    <th>Timestamp</th>
     <th>Qty</th>
   </tr>
 
-  <% counter.entries.each do |entry|  %>
+  <% counter.entries.select{ |e| e.user_id == current_user.id }.each do |entry|  %>
   <tr>
     <td><%= entry.created_at.localtime.strftime('%D %R') %></td>
     <td><%= entry.quantity %></td>

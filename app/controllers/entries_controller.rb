@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  before_action :redirect_if_not_logged_in
+  
   def new
     @entry = Entry.new
     @counter = Counter.new

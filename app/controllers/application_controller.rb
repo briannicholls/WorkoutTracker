@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  
+
 
   def logged_in?
     !!current_user
@@ -15,4 +15,5 @@ class ApplicationController < ActionController::Base
 
   helper_method :redirect_if_not_logged_in
   helper_method :current_user
+  helper_method :logged_in?
 end

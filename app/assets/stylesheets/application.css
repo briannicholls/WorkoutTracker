@@ -14,6 +14,8 @@
  *= require_self
  */
 
-.w3-mobile {
-  max-width: 600px;
+body {
+  max-width: 480px;
+}
+
 }

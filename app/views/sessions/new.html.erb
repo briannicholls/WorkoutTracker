@@ -1,10 +1,23 @@
-<h1>Log In</h1>
 
 <%= form_tag '/login' %>
-<%= label_tag :email %>
-<%= text_field_tag :email %>
 <br>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<br>
-<%= submit_tag 'Log In' %>
+<table class="w3-table">
+  <tr>
+    <th colspan="2"><h1>Log In</h1></th>
+  </tr>
+  <tr>
+    <td><%= label_tag :email %></td>
+
+    <td><%= text_field_tag :email, "", class: 'w3-input' %></td>
+  </tr>
+
+  <tr>
+    <td><%= label_tag :password %></td>
+    <td><%= password_field_tag :password, "", class: 'w3-input' %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><%= submit_tag 'Log In', class: 'w3-btn w3-bar w3-border' %></td>
+  </tr>
+</table>

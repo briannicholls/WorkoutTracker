@@ -12,14 +12,16 @@
   </head>
 
   <body class="w3-mobile">
+    <div class="w3-container w3-mobile">
 
     <% if logged_in? %>
-    <div class="w3-bar w3-black">
+    <div class="w3-bar w3-black w3-top">
       <%= link_to 'Home', user_path(current_user), class: 'w3-bar-item w3-button' %>
       <%= link_to 'Leaderboard', '/leaderboard', class: 'w3-bar-item w3-button' %>
     </div>
     <% end %>
 
     <%= yield %>
+  </div>
   </body>
 </html>

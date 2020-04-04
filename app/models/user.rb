@@ -12,8 +12,12 @@ class User < ApplicationRecord
     Entry.where(user_id: self.id, counter_id: counter.id).sum(:quantity)
   end
 
-  def method_name
+  def sort_by_grand_total(counter)
 
+  end
+
+  def entries(counter)
+    User.where(counter_id: counter.id)
   end
 
 end

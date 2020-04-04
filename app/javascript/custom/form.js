@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   const buttons = document.getElementsByClassName('plus-minus')
   addListenersToButtons(buttons)
 })

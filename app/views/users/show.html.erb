@@ -3,19 +3,23 @@
   <tr>
     <th colspan="2"><h1><%= @user.name %></h1></th>
   </tr>
+
   <tr>
-    <th><%= link_to 'Add Entry', new_entry_path, class: 'w3-btn w3-green w3-bar' %></th>
-    <th><%= link_to 'Add New Counter', new_counter_path, class: 'w3-btn w3-blue w3-bar' %></th>
+    <th colspan="2"><%= link_to 'Add Entry', new_entry_path, class: 'w3-btn w3-green w3-bar' %></th>
+  </tr>
+
+  <tr>
+    <td colspan="2"><%= link_to 'Add New Counter', new_counter_path, class: 'w3-btn w3-blue w3-bar' %></td>
   </tr>
 
   <% @counters.each do |counter| %>
-  <tr>
+
+  <tr class="w3-light-grey">
     <th colspan="2"><h2><%= counter.title %></h2></th>
   </tr>
 
   <tr>
-    <th>Today's Total:</th>
-    <th><%= Entry.today.where('user_id = ? and counter_id = ?', @user.id, counter.id).reduce(0){|sum , e| sum + e.quantity} %></th>
+    <th colspan="2" class="w3-center"><%= "Today's Total: #{@user.todays_total(counter)}" %></th>
   </tr>
 
   <tr>

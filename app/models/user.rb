@@ -3,8 +3,6 @@ class User < ApplicationRecord
   has_many :entries
   has_many :counters, through: :entries
 
-  #scope
-
   def name
     "#{first_name} #{last_name}"
   end
@@ -16,6 +14,16 @@ class User < ApplicationRecord
 
   def grand_total(counter)
     Entry.where(counter_id: counter.id, user_id: self.id).sum(:quantity)
+  end
+
+  def todays_total(counter)
+    Entry.today.where('user_id = ? and counter_id = ?', self.id, counter.id).reduce(0) { |sum , e|
+      sum + e.quantity
+    }
+  end
+
+  def week_total(counter)
+
   end
 
   def user_tops(counter)

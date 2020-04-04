@@ -12,6 +12,12 @@
   <tr>
     <th colspan="2"><h2><%= counter.title %></h2></th>
   </tr>
+
+  <tr>
+    <th>Today's Total:</th>
+    <th><%= Entry.today.where('user_id = ? and counter_id = ?', @user.id, counter.id).reduce(0){|sum , e| sum + e.quantity} %></th>
+  </tr>
+
   <tr>
     <th>Timestamp</th>
     <th>Qty</th>

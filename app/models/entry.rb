@@ -13,7 +13,7 @@ class Entry < ApplicationRecord
   end
 
   def self.counter_user_entries(counter, user)
-    where(counter_id: counter.id, user_id: user.id)
+    where(counter_id: counter.id, user_id: user.id).order('created_at DESC')
   end
 
 end

@@ -1,5 +1,5 @@
 
-<table class="w3-table w3-bordered">
+<table class="w3-table w3-bordered w3-striped">
   <tr>
     <th colspan="2"><h1><%= @user.name %></h1></th>
   </tr>
@@ -23,13 +23,13 @@
   </tr>
 
   <tr>
-    <th>Timestamp</th>
-    <th>Qty</th>
+    <th>Recent entries:</th>
+    <th>Qty:</th>
   </tr>
 
-    <% Entry.counter_user_entries(counter, @user).each do |entry|  %>
+    <% Entry.counter_user_entries(counter, @user).limit(3).each do |entry|  %>
     <tr>
-      <td><%= entry.created_at.localtime.strftime('%D %X') %></td>
+      <td><em><%= entry.created_at.localtime.strftime('%D %X') %></em></td>
       <td><%= entry.quantity %></td>
     </tr>
     <% end %>

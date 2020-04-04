@@ -1,0 +1,3 @@
+class CountersUsers < ApplicationRecord
+  
+end

@@ -5,6 +5,7 @@ class StaticController < ApplicationController
   end
 
   def leaderboard
-    @users = User.all
+    #@users = User.all_by_grand_total()
+    #@entries = Entry.all
   end
 end

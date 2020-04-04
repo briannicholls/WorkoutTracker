@@ -18,4 +18,8 @@ class Entry < ApplicationRecord
     Entry.where(counter_id: counter.id, user_id: user.id).sum(:quantity)
   end
 
+  def self.counter_user_entries(counter, user)
+    where(counter_id: counter.id, user_id: user.id)
+  end
+
 end

@@ -1,22 +1,29 @@
 <%= form_for @entry do |f|%>
+<h1>Create Entry</h1>
 
-<table class="w3-table w3-bordered">
-
-<tr>
-  <td><%= f.label :quantity %></td>
-  <td><%= f.text_field :quantity %></td>
-</tr>
-
-<tr>
-  <td><%= f.label :counter_id, 'Select Counter' %></td>
-  <td><%= f.collection_select :counter_id, Counter.all, :id, :title, include_blank: true %></td>
-</tr>
+<div class="w3-container">
+  <%= f.label :counter_id, 'Select Counter' %>
+  <%= f.collection_select :counter_id, Counter.all, :id, :title, {include_blank: true}, {class: 'w3-select'} %>
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity, value: '0', class: 'w3-input', id: 'numba' %>
+  <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+<br>
+  <table class="w3-table">
+  <tr>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>-10</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>-1</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>+1</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>+10</span></td>
+  </tr>
+  </table>
 <br>
 
-<tr>
-  <td colspan="2"><%= f.submit class: 'w3-button w3-bar w3-black' %></td>
+
+  <%= f.submit class: 'w3-button w3-bar w3-black' %>
+
+</div>
+
 </tr>
-<%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
 <br>
 <%#= f.fields_for :counter, Counter.new do |ff| %>
   <%#= ff.label :title, 'New Counter' %>
@@ -24,7 +31,4 @@
 
 <%# end %>
 <br>
-
-
-</table>
 <% end %>

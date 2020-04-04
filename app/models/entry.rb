@@ -5,13 +5,6 @@ class Entry < ApplicationRecord
 
   validates :quantity, presence: true
 
-  # Select * from entries where user = ? and counter = ?
-  #scope :leaders, -> {}
-
-  #scope :today, -> { where(created_at: )}
-
-  #scope :grand_total, -> { Entry.where(user_id: self.id).order('quantity DESC').limit(1) }
-
   scope :all_by_quantity, -> {Entry.order('quantity DESC')}
 
   def user_total(counter, user)

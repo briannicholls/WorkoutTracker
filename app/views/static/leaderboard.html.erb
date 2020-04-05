@@ -23,7 +23,7 @@
   </tr>
   <% counter.users.uniq.sort_by{|e| -e.grand_total(counter)}.each_with_index do |user, i| %>
     <tr>
-      <td><%= "#{i + 1}. #{user.first_name}" %></td>
+      <td><%= link_to "#{i + 1}. #{user.first_name}", user_path(user) %></td>
       <td><%= user.grand_total(counter) %></td>
     </tr>
 

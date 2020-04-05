@@ -1,0 +1,14 @@
+<td class="w3-bar w3-black" colspan="2">
+
+<%= link_to 'All-Time', '/leaderboard', class: 'w3-bar-item w3-button' %>
+
+<%= form_with url: :leaderboard, method: :get, local: true do |f| %>
+<%= f.hidden_field :week %>
+<%= f.submit 'Past Week', class: 'w3-bar-item w3-button', name: nil %>
+<% end %>
+
+<%= form_with url: :leaderboard, method: :get, local: true do |f| %>
+<%= f.hidden_field :day %>
+<%= f.submit 'Past 24 hours', class: 'w3-bar-item w3-button', name: nil %>
+<% end %>
+</td>

@@ -6,7 +6,8 @@ class Entry < ApplicationRecord
   validates :quantity, presence: true, numericality: {greater_than: 0}
 
   scope :all_by_quantity, -> {Entry.order('quantity DESC')}
-  scope :today, -> {Entry.where('created_at >= ?', Time.zone.now.beginning_of_day)}
+  scope :today, -> {Entry.where('created_at >= ?', 24.hours.ago)}
+  scope :week, -> {Entry.where('created_at >= ?', 1.week.ago)}
 
   def user_total(counter, user)
     Entry.where(counter_id: counter.id, user_id: user.id).sum(:quantity)

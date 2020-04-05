@@ -17,17 +17,27 @@ class User < ApplicationRecord
   end
 
   def todays_total(counter)
-    Entry.today.where('user_id = ? and counter_id = ?', self.id, counter.id).reduce(0) { |sum , e|
+    entries.today.where('counter_id = ?', counter.id).reduce(0) { |sum , e|
       sum + e.quantity
     }
   end
 
   def week_total(counter)
-
+    entries.week.where(counter_id: counter.id).reduce(0) { |sum, e|
+      sum + e.quantity
+    }
   end
 
-  def user_tops(counter)
-    self.entries.select{|e| e.counter == counter}.sum(:quantity)
+  def day_total(counter)
+    entries.today.where('counter_id = ?', counter.id).sum(:quantity)
   end
+
+  def self.weekly_tops(counter)
+    # return array of users
+  end
+
+  # def user_tops(counter)
+  #   self.entries.select{|e| e.counter == counter}.sum(:quantity)
+  # end
 
 end

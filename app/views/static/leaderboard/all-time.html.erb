@@ -3,13 +3,8 @@
   <tr>
     <th colspan="2"><h1>Leaderboard</h1></th>
   </tr>
-
   <tr>
-    <td class="w3-bar w3-black" colspan="2">
-      <%= link_to 'All-Time', '#', class: 'w3-bar-item w3-button' %>
-      <%= link_to 'Week', '#', class: 'w3-bar-item w3-button' %>
-      <%= link_to 'Day', '#', class: 'w3-bar-item w3-button' %>
-    </td>
+    <%= render 'static/leaderboard/nav'  %>
   </tr>
 
   <% Counter.all.each do |counter| %>
@@ -21,7 +16,7 @@
     <th>Name</th>
     <th>Grand Total</th>
   </tr>
-  <% counter.users.uniq.sort_by{|e| -e.grand_total(counter)}.each_with_index do |user, i| %>
+  <% counter.users_by_grand_total.each_with_index do |user, i| %>
     <tr>
       <td><%= link_to "#{i + 1}. #{user.first_name}", user_path(user) %></td>
       <td><%= user.grand_total(counter) %></td>

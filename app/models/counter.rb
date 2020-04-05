@@ -12,9 +12,21 @@ class Counter < ApplicationRecord
     Entry.where(counter_id: self.id, user_id: user.id).sum(:quantity)
   end
 
-  def top_users
+  def users_by_grand_total
+    self.users.uniq.sort_by{ |e|
+      -e.grand_total(self)
+    }
+  end
+
+  def users_by_week_total
     self.users.sort_by{ |e|
-      e.grand_total(self)
-    }.reverse
+      e.week_total(self)
+    }.uniq.reverse
+  end
+
+  def users_by_day_total
+    self.users.uniq.sort_by{ |e|
+      -e.day_total(self)
+    }
   end
 end

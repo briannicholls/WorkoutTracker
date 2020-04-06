@@ -29,7 +29,7 @@
 
     <% Entry.counter_user_entries(counter, @user).limit(3).each do |entry|  %>
     <tr>
-      <td><em><%= I18n.l entry.created_at.localtime, format: :short %></em></td>
+      <td><em><%= entry.created_at.in_time_zone(current_user.time_zone).strftime('%D %T') %></em></td>
       <td><%= entry.quantity %></td>
     </tr>
     <% end %>

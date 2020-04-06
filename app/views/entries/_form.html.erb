@@ -8,19 +8,29 @@
   <%= f.text_field :quantity, value: '0', class: 'w3-input', id: 'numba' %>
   <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
 <br>
+<!--
   <table class="w3-table">
-  <tr>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>-10</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>-5</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>-1</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>+1</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>+5</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border'>+10</span></td>
+  <tr class="w3-width">
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-10</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-5</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-1</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+1</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+5</span></td>
+    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+10</span></td>
   </tr>
   </table>
 <br>
+-->
+<div class="w3-row">
+  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-10</span>
+  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-5</span>
+  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-1</span>
+  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+1</span>
+  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+5</span>
+  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+10</span>
 
-
+</div>
+<br>
   <%= f.submit class: 'w3-button w3-bar w3-black' %>
 
 </div>

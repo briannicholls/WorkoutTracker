@@ -1,13 +1,13 @@
-
 <table class="w3-table w3-bordered">
   <tr>
     <th colspan="2"><h1>Leaderboard</h1></th>
   </tr>
+
   <tr>
     <%= render 'static/leaderboard/nav'  %>
   </tr>
 
-  <% Counter.all.each do |counter| %>
+  <% @counters.each do |counter| %>
     <tr>
       <th colspan="2"><h2><%= counter.title %></h2></th>
     </tr>
@@ -16,13 +16,8 @@
       <th>Name</th>
       <th>Grand Total</th>
     </tr>
-    <% counter.users_by_grand_total.each_with_index do |user, i| %>
-      <tr>
-        <td><%= link_to "#{i + 1}. #{user.first_name}", user_path(user) %></td>
-        <td><%= user.grand_total(counter) %></td>
-      </tr>
 
-    <% end %>
-
+    <%= render partial: 'static/leaderboard/top_users', locals: {users: counter.users_by_grand_total, counter: counter, period: 'grand'} %>
   <% end %>
+  
 </table>

@@ -1,0 +1,8 @@
+<% users.each_with_index do |user, i| %>
+  
+  <tr>
+    <td><%= link_to "#{i + 1}. #{user.first_name}", user_path(user) %></td>
+    <td><%= user.send("#{period}_total", counter) %></td>
+  </tr>
+
+<% end %>

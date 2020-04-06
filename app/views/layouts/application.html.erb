@@ -21,6 +21,10 @@
       <%= link_to 'Leaderboard', '/leaderboard?day=', class: 'w3-bar-item w3-button' %>
       <%= link_to 'Log Out', '/logout', class: 'w3-bar-item w3-button' %>
     </div>
+    <% else %>
+    <div class="w3-bar w3-black w3-top">
+      <%= link_to 'Sign In', login_path, class: 'w3-bar-item w3-button' %>
+    </div>
     <% end %>
 
     <%= yield %>

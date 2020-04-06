@@ -1,42 +1,17 @@
-<%= form_for @entry do |f|%>
-<h1>Create Entry</h1>
-
 <div class="w3-container">
+  <h1>Create Entry</h1>
+  <%= form_for @entry do |f|%>
   <%= f.label :counter_id, 'Select Counter' %>
   <%= f.collection_select :counter_id, Counter.all, :id, :title, {include_blank: true}, {class: 'w3-select'} %>
   <%= f.label :quantity %>
   <%= f.text_field :quantity, value: '0', class: 'w3-input', id: 'numba' %>
   <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
-<br>
-<!--
-  <table class="w3-table">
-  <tr class="w3-width">
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-10</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-5</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-1</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+1</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+5</span></td>
-    <td><span class='w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+10</span></td>
-  </tr>
-  </table>
-<br>
--->
-<div class="w3-row">
-  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-10</span>
-  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-5</span>
-  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-red'>-1</span>
-  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+1</span>
-  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+5</span>
-  <span class='w3-col s2 w3-button plus-minus w3-card w3-padding-large w3-border w3-light-green'>+10</span>
 
-</div>
-<br>
+  <%= render 'buttons' %>
+
   <%= f.submit class: 'w3-button w3-bar w3-black' %>
-
+  <% end %>
 </div>
 
-</tr>
 <br>
-
 <br>
-<% end %>

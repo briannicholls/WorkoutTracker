@@ -1,4 +1,3 @@
-
 <table class="w3-table w3-bordered">
   <tr>
     <th colspan="2"><h1>Leaderboard</h1></th>
@@ -8,25 +7,17 @@
     <%= render 'static/leaderboard/nav'  %>
   </tr>
 
-
-  <% Counter.all.each do |counter| %>
-  <tr>
-    <th colspan="2"><h2><%= counter.title %></h2></th>
-  </tr>
-
-  <tr>
-    <th>Name</th>
-    <th>Total in Past Week</th>
-  </tr>
-
-  <% counter.users_by_week_total.each_with_index do |user, i| %>
-
+  <% @counters.each do |counter| %>
     <tr>
-      <td><%= link_to "#{i + 1}. #{user.first_name}", user_path(user) %></td>
-      <td><%= user.week_total(counter) %></td>
+      <th colspan="2"><h2><%= counter.title %></h2></th>
     </tr>
 
-  <% end %>
+    <tr>
+      <th>Name</th>
+      <th>Total in Past Week</th>
+    </tr>
+
+    <%= render partial: 'static/leaderboard/top_users', locals: {users: counter.users_by_week_total, counter: counter, period: 'week'}  %>
 
   <% end %>
 </table>

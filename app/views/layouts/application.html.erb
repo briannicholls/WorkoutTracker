@@ -18,7 +18,7 @@
     <% if logged_in? %>
     <div class="w3-bar w3-black w3-top">
       <%= link_to 'Home', user_path(current_user), class: 'w3-bar-item w3-button' %>
-      <%= link_to 'Leaderboard', '/leaderboard', class: 'w3-bar-item w3-button' %>
+      <%= link_to 'Leaderboard', '/leaderboard?day=', class: 'w3-bar-item w3-button' %>
       <%= link_to 'Log Out', '/logout', class: 'w3-bar-item w3-button' %>
     </div>
     <% end %>

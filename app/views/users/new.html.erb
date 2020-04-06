@@ -1,10 +1,56 @@
-<h1>Create Account</h1>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
-<%= form_for @user do |f| %>
-<%= f.label :first_name %> <%= f.text_field :first_name %> <br>
-<%= f.label :last_name %> <%= f.text_field :last_name %> <br>
-<%= f.label :email %> <%= f.text_field :email %> <br>
-<%= f.label :password %> <%= f.password_field :password %> <br>
-<%= f.label :password_confirmation %> <%= f.password_field :password_confirmation %> <br>
-<%= f.submit %>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= simple_form_for @user do |f| %>
+<table class="w3-table">
+<tr>
+  <th colspan="2"><h1>Create Account</h1></th>
+</tr>
+
+<tr>
+  <td><%= f.label :first_name %></td>
+  <td><%= f.text_field :first_name %></td>
+</tr>
+
+<tr>
+  <td><%= f.label :last_name %></td>
+  <td><%= f.text_field :last_name %></td>
+</tr>
+
+<tr>
+  <td><%= f.label :email %></td>
+  <td><%= f.text_field :email %></td>
+</tr>
+
+<tr>
+  <td><%= f.label :password %></td>
+  <td><%= f.password_field :password %></td>
+</tr>
+
+<tr>
+  <td><%= f.label :password_confirmation %></td>
+  <td><%= f.password_field :password_confirmation %></td>
+</tr>
+
+<tr>
+  <td><%= f.label :time_zone %></td>
+  <td><%= f.input :time_zone, label: false %></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><%= f.submit %></td>
+</tr>
+
+</table>
 <% end %>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      
       render :new
     end
   end
@@ -32,7 +33,8 @@ class UsersController < ApplicationController
       :last_name,
       :email,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :time_zone
     )
   end
 end

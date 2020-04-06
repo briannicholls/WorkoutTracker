@@ -5,7 +5,7 @@ document.addEventListener('turbolinks:load', () => {
   for (let button of btns) {
     console.log('iterating through buttons....')
     if(window.location.href == button.href){
-      button.classList.add('w3-white')
+      button.classList.add('w3-yellow')
     }
   }
 })

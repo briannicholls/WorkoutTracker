@@ -1,8 +1,7 @@
 <td class="w3-bar w3-black" colspan="2">
+  <%= link_to 'Past 24 hours', '/leaderboard?day=', class: 'w3-bar-item w3-button leaderboard-buttons' %>
+  
+  <%= link_to 'Past week', '/leaderboard?week=', class: "w3-bar-item w3-button leaderboard-buttons" %>
 
-<%= link_to 'All-Time', '/leaderboard', class: 'w3-bar-item w3-button leaderboard-buttons' %>
-
-<%= link_to 'Past week', '/leaderboard?week=', class: "w3-bar-item w3-button leaderboard-buttons" %>
-
-<%= link_to 'Past 24 hours', '/leaderboard?day=', class: 'w3-bar-item w3-button leaderboard-buttons' %>
+  <%= link_to 'All-Time', '/leaderboard', class: 'w3-bar-item w3-button leaderboard-buttons' %>
 </td>

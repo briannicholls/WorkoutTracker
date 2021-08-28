@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'rails', '~> 6.1.3.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.4'
 gem 'pg'
@@ -27,6 +27,8 @@ gem 'simple_form'
 gem 'local_time'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
